@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_task/core/services/dependency_injection/di.dart';
-import 'package:flutter_task/core/globals.dart';
-import 'package:flutter_task/core/routes.dart';
-import 'package:flutter_task/core/services/connectivity/connectivity_cubit.dart';
-import 'package:flutter_task/pages/first_page.dart';
+import 'core/services/dependency_injection/di.dart';
+import 'core/globals.dart';
+import 'core/routes.dart';
+import 'core/services/connectivity/connectivity_cubit.dart';
+import 'pages/first_page.dart';
 
 class TaskApp extends StatelessWidget {
   const TaskApp({super.key});

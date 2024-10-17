@@ -1,7 +1,8 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_task/core/globals.dart';
+import '../../colors_manager.dart';
+import '../../globals.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
@@ -63,13 +64,13 @@ void showToast(bool hasInternetAccess) {
     fontSize: 16,
     timeInSecForIosWeb: 5,
     backgroundColor:
-        hasInternetAccess ? Colors.green[300] : const Color(0xffE15141),
+        hasInternetAccess ? ColorsManager.customGreen : ColorsManager.customRed,
     textColor: Colors.white,
   );
   if (!hasInternetAccess) {
     snackbarKey.currentState!.showSnackBar(
       const SnackBar(
-          backgroundColor: Color(0xffE15141),
+          backgroundColor: ColorsManager.customRed,
           duration: Duration(days: 1),
           content: Row(
             children: [

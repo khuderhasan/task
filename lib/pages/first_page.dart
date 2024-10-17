@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_task/core/services/connectivity/connectivity_cubit.dart';
-import 'package:flutter_task/pages/second_page.dart';
+import '../core/colors_manager.dart';
+import '../core/services/connectivity/connectivity_cubit.dart';
+import 'second_page.dart';
 
 class FirstPage extends StatelessWidget {
   static const routeName = '/first_page';
@@ -25,9 +27,29 @@ class FirstPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Connection Type : ${state.connectionType}'),
+                    Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: (state.connectionType == 'Not Connected')
+                            ? ColorsManager.customRed
+                            : ColorsManager.customGreen,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        'Connection Type : ${state.connectionType}',
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ),
                     const SizedBox(height: 50),
-                    Text('VPN Connected : ${state.vpnConnected} '),
+                    Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: (!state.vpnConnected!)
+                              ? ColorsManager.customRed
+                              : ColorsManager.customGreen,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text('VPN Connected : ${state.vpnConnected} ')),
                     const SizedBox(height: 50),
                     ElevatedButton(
                         onPressed: () => Navigator.of(context)
